@@ -31,7 +31,7 @@ The system will ask you for your GITHUB credentials. Just follow the instruction
 
 After inserting your credentials, your changes will be on the repository you previously forked. You will have to go to github.com and create a pull request. Please follow the instructions found here: https://help.github.com/articles/using-pull-requests/ to do that.
 
-I will then submit all changes to the master repository. This way we keep a record of who did what.
+I will then submit all changes to the master repository.
 
 
 
