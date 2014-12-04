@@ -3,9 +3,7 @@
     The Coder Mix Team
 </h1>
 
-First, fork this repository
-
-Follow instructions listed here: 
+Follow instructions listed here to fork this repository and to share your changes to github. This way we will keep the same version of the app.
 
 https://help.github.com/articles/fork-a-repo/
 
