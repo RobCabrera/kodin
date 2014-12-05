@@ -1,12 +1,16 @@
 
 <?php
 
-echo "Change1";
-echo "Hello Koding... this is my first php page <br><br>";
+
+//Add this to every single page you create. This is DATADOG
+require("datadog-tracker.php");
+
+
+echo "a cool app is about to be created. Stay tunned for more info...";
 
 
 //Connect to a database using pdo
-
+/*
 include('con-db.php');
 
 try{
@@ -38,6 +42,6 @@ try{
 	echo $e->getMessage();
 }
 
-
+*/
 
 ?>
