@@ -1,3 +1,27 @@
+<?php 
+if( $_POST["submit"]=="Download"){
+	$no = mt_rand(100,10000);
+ $filename = $no.'document.html';
+ header("Cache-Control: public");
+ header("Content-Description: File Transfer");
+ header("Content-Disposition: attachment; filename=$filename");
+ header("Content-Type: application/octet-stream; ");
+ header("Content-Transfer-Encoding: binary");
+}elseif($_POST["submit"]=="Email"){
+	$text = $_POST["fulltext"];
+	$email = $_POST["email"];
+		// the message
+		$msg = $text;
+
+
+
+		// send email
+		mail($email,"Legal document",$msg);
+		echo "Email has been sent.";
+
+}else{
+
+?>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -84,7 +108,7 @@ document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navi
 
 <script src="js/impress.js"></script>
 <script>impress().init();</script>
-
+<?php } ?>
 
 </body>
 </html>

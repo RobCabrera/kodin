@@ -82,14 +82,22 @@ foreach($data as $key1 => $val1) {
 $topics = implode('_', $tops);
 $sections = implode('_', $sects);
 
-//print_r($sections);
-//die();
+
 }
 if($_SESSION["color"]=='red'){
       echo "This button will turn to green when document is fully read
     <form target='_blank' method='post' action='show.php'><input name='topics' type='hidden' id='topics' value='".$topics."'/>";
+       echo "<textarea style='display:none;' name='fulltext' id='fulltext'>".$string."</textarea>";
     echo "<textarea style='display:none;' name='sections' id='sections'>".$sections."</textarea>
-    <input class='btn btn-danger btn-large' type='submit' name='submit' value='Terms and agreement'>
+    <div class='col-md-12'>
+    <div class='col-md-12'>
+    <input class='btn btn-danger btn-large' type='submit' name='submit' value='View Terms and agreement'>
+    <input class='btn btn-info btn-large' type='submit' name='submit' value='Download'><br>
+    </div>
+    <div class='col-md-3'>
+    <input class='form-control'  placeholder='Your email' name='email id='email' length='8'/></div>
+    <div class='col-md-3'>
+    <input class='btn btn-info btn-large' type='submit' name='submit' value='Email'></div></div>
     </form>";
 }else{
     echo "<a id='textload' class='btn btn-success btn-large' href='#''>Terms and agreement </a>";
