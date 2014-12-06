@@ -1,0 +1,21 @@
+.demo-load-doc-container{
+    margin: 10px 0;
+    display:none;
+}
+
+.demo-load-doc-container span{
+    display: inline-block;
+    font-weight:bold;
+    margin: 5px 0;
+}
+
+.demo-load-doc-container textarea{
+    padding: 15px;
+    resize: none;
+}
+
+.demo-run-container{
+    padding: 10px 0 0 0;
+    margin: 5px 0 0 0;
+    border-top: 1px dotted #ccc;
+}
