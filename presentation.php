@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 
@@ -39,15 +39,17 @@ session_start();
 
 <div class="col-md-offset-2 col-md-8">
 <?php 
-if(isset($_POST["comment"])){
-$string = $_POST["comment"]; //getting the text
+if(isset($_POST["document"])){
+$string = $_POST["document"]; //getting the text
 
 $data  = preg_split("#\n\s*\n#Uis", $string); //spliting to sections
 
-$data2= preg_split("#\n#Uis", $data[0]); //display topic of first section
+//display topic of first section
 
 
 $sects = array();
+$tops = array();
+
 
 foreach($data as $key1 => $val1) {
    $firstElement = true;
@@ -62,13 +64,31 @@ foreach($data as $key1 => $val1) {
 
 }
 
-$topics = implode('_', $data2);
+foreach($data as $key1 => $val1) {
+ $firstElement2 = true;
+  $dataN= preg_split("#\n#Uis", $data[$key1]);
+  foreach($dataN as $key => $val) {
+     if($firstElement2) {
+      array_push($tops, $val);
+      $firstElement2 = false;
+    } else {
+      break;
+    }
+  }
+
+}
+
+
+$topics = implode('_', $tops);
 $sections = implode('_', $sects);
+
+//print_r($sections);
+//die();
 }
 if($_SESSION["color"]=='red'){
       echo "This button will turn to green when document is fully read
     <form target='_blank' method='post' action='show.php'><input name='topics' type='hidden' id='topics' value='".$topics."'/>";
-    echo "<input type='hidden' name='sections' id='sections' value='".$sections."'/>
+    echo "<textarea style='display:none;' name='sections' id='sections'>".$sections."</textarea>
     <input class='btn btn-danger btn-large' type='submit' name='submit' value='Terms and agreement'>
     </form>";
 }else{
