@@ -12,7 +12,7 @@ session_start();
     <link href='css/custom-style.css' rel='stylesheet' /> 
     <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' /> 
     <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>
-    
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script>
     
 </head>
 
@@ -154,7 +154,7 @@ session_start();
                         				
                         				<div class='col-md-offset-4'>
                         				    <!--<input class='btn btn-info btn-large' type='submit' name='submit' value='Download'>-->
-                        				    <button class='btn btn-warning btn-large' type='submit' name='submit'>
+                        				    <button class='btn btn-warning btn-large' type='submit' name='submit' value='Download'>
                     					        <span class='glyphicon glyphicon-floppy-save' aria-hidden='true'></span> Download
                     					    </button>
                         				</div>
@@ -181,13 +181,13 @@ session_start();
                                         
                                             <div class='col-md-9'>
                             				    
-                            				    <input class='form-control'  placeholder='Your email' name='email id='email' length='8'/>
+                            				    <input class='form-control'  placeholder='Your email' name='email' id='email' length='8'/>
                                                
                             				</div>
                             				
                             				<div class='col-md-offset-4'>
                             				   <!--<input class='btn btn-info btn-large' type='submit' name='submit' value='Email'>-->
-                            				   <button class='btn btn-info btn-large' type='submit' name='submit'>
+                            				   <button class='btn btn-info btn-large' type='submit' name='submit' value='Email'>
                         					        <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> Email
                         					    </button>
                             				</div>
@@ -205,6 +205,11 @@ session_start();
                 echo "<a id='textload' class='btn btn-success btn-large' href='#''>Terms and agreement </a>";
             }
             
+            /*
+            echo "<pre class='prettyprint'>";
+            show_source("demo.php");
+            echo "</pre>";
+            */
         ?>
 
     </div>

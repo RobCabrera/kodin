@@ -1,20 +1,56 @@
 <?php 
 if( $_POST["submit"]=="Download"){
-	$no = mt_rand(100,10000);
- $filename = $no.'document.html';
- header("Cache-Control: public");
- header("Content-Description: File Transfer");
- header("Content-Disposition: attachment; filename=$filename");
- header("Content-Type: application/octet-stream; ");
- header("Content-Transfer-Encoding: binary");
+    
+    $no = mt_rand(100,10000);
+    $filename = $no.'document.html';
+    
+    
+    header("Cache-Control: public");
+    header("Content-Description: File Transfer");
+    header("Content-Disposition: attachment; filename=$filename");
+    header("Content-Type: application/octet-stream; ");
+    header("Content-Transfer-Encoding: binary");
+    
 }elseif($_POST["submit"]=="Email"){
-	$text = $_POST["fulltext"];
-	$email = $_POST["email"];
-		// the message
-		$msg = $text;
-		// send email
-		mail($email,"Legal document",$msg);
-		echo "Email has been sent.";
+    
+    //Using PHPMailer 
+    require 'PHPMailer/PHPMailerAutoload.php';
+
+    $mail = new PHPMailer;
+    
+    $mail->isSMTP();
+    $mail->Host = 'ssrs.reachmail.net'; 
+    $mail->SMTPAuth = plain;                            
+    $mail->Username = 'ROBERTOC1\\admin';              
+    $mail->Password = '!@1VbD@#';                       
+    $mail->SMTPSecure = 'tls';                        
+    $mail->Port = 587;    
+    
+    //This is a free smtp, therefore, it will take some time to deliver the message.. it sucks! I know... Feel free to plug in your SMTP info.
+    
+    $email = $_POST['email'];
+    $text = $_POST["fulltext"];
+   
+    $mail->From = 'rob@robertocabrera.us';
+    $mail->FromName = 'system';
+    $mail->addAddress($email);     // Add a recipient
+    
+    
+   // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+    $mail->isHTML(true);                                  // Set email format to HTML
+    
+    $mail->Subject = 'Test - using free smtp ';
+    $mail->Body    = 'Attached, please find your zip. files' . $text;
+   // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    
+    if(!$mail->send()) {
+        echo 'Message could not be sent.<br>';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+    
 }else{
 ?>
 <html lang="en">
