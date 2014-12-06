@@ -92,96 +92,121 @@ session_start();
     
     <div class="row">
     
-        Your file has been proccess. There are a few options available for you.
-    
-    
-    
+        <div class="alert alert-success" role="alert">
+           <span class="glyphicon glyphicon-ok" aria-hidden='true'></span> Your file has been proccess. There are a few options available for you.
+        
+        </div>
+
     </div>
     
     <div class="row">
     
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h2 class="panel-title">
-                    <!--<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Demo</a>-->
-                    Option 1
-                    
-                  </h2>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
-                        
-                    </div>
-                </div>
-            </div>
-            <!---->
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                      <h4 class="panel-title">
-                       
-                        Option 2
-                        
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                       
-                            
-                        </div>
-                    </div>
-                </div> 
-            
-        </div> 
-    
-    
-    
-        <div class="col-md-12">
-        
-            <?php
+        <?php
             
             if($_SESSION["color"]=='red'){
                 
                 echo "
                 
-                <div class='col-md-9'>
-					
-				</div>
-				
-				<div class='col-md-offset-4'>
-					column 4
-				</div>
-                
-                
-                
-                
-                This button will turn to green when document is fully read
-                <form target='_blank' method='post' action='show.php'><input name='topics' type='hidden' id='topics' value='".$topics."'/>
-                
-                
+                    <div class='panel-group' id='accordion' role='tablist' aria-multiselectable='true'>
+                        <div class='panel panel-default'>
+                            <div class='panel-heading' role='tab' id='headingOne'>
+                              <h2 class='panel-title'>
+                                
+                                Option 1
+                                
+                              </h2>
+                            </div>
+                            <div id='collapseOne' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='headingOne'>
+                                <div class='panel-body'>
+                                
+                                    <div class='col-md-9'>
+                    					This button will turn to green when document is fully read
+                    				</div>
+                    				
+                    				<div class='col-md-offset-4'>
+                    					<form target='_blank' method='post' action='show.php'><input name='topics' type='hidden' id='topics' value='".$topics."'/>
+                    					    <textarea style='display:none;' name='fulltext' id='fulltext'>".$string."</textarea>
+                    					    <textarea style='display:none;' name='sections' id='sections'>".$sections."</textarea>
+                    					    <!--<input class='btn btn-danger btn-large' type='submit' name='submit' value='Load it in Browser'>-->
+                    					    <button class='btn btn-danger btn-large' type='submit' name='submit'>
+                    					        <span class='glyphicon glyphicon-fullscreen' aria-hidden='true'></span> Load it in Browser
+                    					    </button>
+                    				</div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                            <div class='panel panel-default'>
+                                <div class='panel-heading' role='tab' id='headingTwo'>
+                                  <h4 class='panel-title'>
+                                   
+                                    Option 2
+                                    
+                                  </h4>
+                                </div>
+                                <div id='collapseTwo' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='headingTwo'>
+                                    <div class='panel-body'>
+                                    
+                                        <div class='col-md-9'>
+                        				    Download the files, and add them to your website.
+                        				</div>
+                        				
+                        				<div class='col-md-offset-4'>
+                        				    <!--<input class='btn btn-info btn-large' type='submit' name='submit' value='Download'>-->
+                        				    <button class='btn btn-warning btn-large' type='submit' name='submit'>
+                    					        <span class='glyphicon glyphicon-floppy-save' aria-hidden='true'></span> Download
+                    					    </button>
+                        				</div>
+                                   
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class='panel panel-default'>
+                                <div class='panel-heading' role='tab' id='headingTwo'>
+                                  <h4 class='panel-title'>
+                                   
+                                    Option 3
+                                    
+                                  </h4>
+                                </div>
+                                <div id='collapseTwo' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='headingThree'>
+                                    <div class='panel-body'>
+                                    
+                        				<span style='display:inline-block; margin: 5px 0;'>    
+                            		        Can't download it now, no problem. Just send it to your email.
+                                        </span>
+                                        <div class='row'>
+                                        
+                                            <div class='col-md-9'>
+                            				    
+                            				    <input class='form-control'  placeholder='Your email' name='email id='email' length='8'/>
+                                               
+                            				</div>
+                            				
+                            				<div class='col-md-offset-4'>
+                            				   <!--<input class='btn btn-info btn-large' type='submit' name='submit' value='Email'>-->
+                            				   <button class='btn btn-info btn-large' type='submit' name='submit'>
+                        					        <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> Email
+                        					    </button>
+                            				</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    
+                    </form>
                 ";
-                
-                
-                
-                   echo "<textarea style='display:none;' name='fulltext' id='fulltext'>".$string."</textarea>";
-                echo "<textarea style='display:none;' name='sections' id='sections'>".$sections."</textarea>
-                <div class='col-md-12'>
-                <div class='col-md-12'>
-                <input class='btn btn-danger btn-large' type='submit' name='submit' value='View Terms and agreement'>
-                <input class='btn btn-info btn-large' type='submit' name='submit' value='Download'><br>
-                </div>
-                <div class='col-md-3'>
-                <input class='form-control'  placeholder='Your email' name='email id='email' length='8'/></div>
-                <div class='col-md-3'>
-                <input class='btn btn-info btn-large' type='submit' name='submit' value='Email'></div></div>
-                </form>";
             }else{
                 echo "<a id='textload' class='btn btn-success btn-large' href='#''>Terms and agreement </a>";
             }
-            ?>
             
-            
-        
+        ?>
+
     </div>
 
 </div>
