@@ -28,7 +28,7 @@ session_start();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="#">home <span class="sr-only">(current)</span></a></li>
       </ul>
       
      
@@ -41,16 +41,10 @@ session_start();
 <?php 
 if(isset($_POST["document"])){
 $string = $_POST["document"]; //getting the text
-
 $data  = preg_split("#\n\s*\n#Uis", $string); //spliting to sections
-
 //display topic of first section
-
-
 $sects = array();
 $tops = array();
-
-
 foreach($data as $key1 => $val1) {
    $firstElement = true;
   $dataN= preg_split("#\n#Uis", $data[$key1]);
@@ -61,9 +55,7 @@ foreach($data as $key1 => $val1) {
       array_push($sects, $val);
     }
   }
-
 }
-
 foreach($data as $key1 => $val1) {
  $firstElement2 = true;
   $dataN= preg_split("#\n#Uis", $data[$key1]);
@@ -75,26 +67,26 @@ foreach($data as $key1 => $val1) {
       break;
     }
   }
-
 }
-
-
 $topics = implode('_', $tops);
 $sections = implode('_', $sects);
-
-//print_r($sections);
-//die();
 }
 if($_SESSION["color"]=='red'){
       echo "This button will turn to green when document is fully read
     <form target='_blank' method='post' action='show.php'><input name='topics' type='hidden' id='topics' value='".$topics."'/>";
+       echo "<textarea style='display:none;' name='fulltext' id='fulltext'>".$string."</textarea>";
     echo "<textarea style='display:none;' name='sections' id='sections'>".$sections."</textarea>
-    <input class='btn btn-danger btn-large' type='submit' name='submit' value='Terms and agreement'>
+    <div class='col-md-12'>
+    <div class='col-md-12'>
+    <input class='btn btn-danger btn-large' type='submit' name='submit' value='View Terms and agreement'>
+    <input class='btn btn-info btn-large' type='submit' name='submit' value='Download'><br>
+    </div>
+    <div class='col-md-3'>
+    <input class='form-control'  placeholder='Your email' name='email id='email' length='8'/></div>
+    <div class='col-md-3'>
+    <input class='btn btn-info btn-large' type='submit' name='submit' value='Email'></div></div>
     </form>";
 }else{
     echo "<a id='textload' class='btn btn-success btn-large' href='#''>Terms and agreement </a>";
 }
-
-
 ?>
-

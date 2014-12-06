@@ -1,3 +1,22 @@
+<?php 
+if( $_POST["submit"]=="Download"){
+	$no = mt_rand(100,10000);
+ $filename = $no.'document.html';
+ header("Cache-Control: public");
+ header("Content-Description: File Transfer");
+ header("Content-Disposition: attachment; filename=$filename");
+ header("Content-Type: application/octet-stream; ");
+ header("Content-Transfer-Encoding: binary");
+}elseif($_POST["submit"]=="Email"){
+	$text = $_POST["fulltext"];
+	$email = $_POST["email"];
+		// the message
+		$msg = $text;
+		// send email
+		mail($email,"Legal document",$msg);
+		echo "Email has been sent.";
+}else{
+?>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -7,8 +26,6 @@
 
 <?php 
 session_start();
-
-
 $_SESSION["color"] = 'green';
 ?>
 
@@ -24,14 +41,10 @@ $_SESSION["color"] = 'green';
 </head>
 <body class="impress-not-supported">
 <?php 
-
 $topics = $_POST["topics"]; //getting the text
 $sections = $_POST["sections"]; //getting the text
-
 $realtopics = explode('_', $topics);
 $realsections = explode('_', $sections);
-
-
 ?>
 
 <!--
@@ -47,8 +60,6 @@ For example this fallback message is only visible when there is `impress-not-sup
 <?php $x = -1000;
 $y = -1500;
  for ($i=0;$i<count($realtopics);$i++){
-
-
 ?>
 
 
@@ -59,9 +70,7 @@ $y = -1500;
 
 
 <?php
-
 }
-
 ?>
 
 
@@ -84,10 +93,7 @@ document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navi
 
 <script src="js/impress.js"></script>
 <script>impress().init();</script>
-
+<?php } ?>
 
 </body>
 </html>
-
-
-
