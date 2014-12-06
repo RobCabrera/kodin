@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("datadog-tracker.php");
+//require("datadog-tracker.php");
 ?>
 
 <!DOCTYPE html>
