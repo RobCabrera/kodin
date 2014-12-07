@@ -1,28 +1,9 @@
 <?php 
+
+
+
+
 if( $_POST["submit"]=="Download"){
-<<<<<<< HEAD
-	$no = mt_rand(100,10000);
- $filename = $no.'document.html';
- header("Cache-Control: public");
- header("Content-Description: File Transfer");
- header("Content-Disposition: attachment; filename=$filename");
- header("Content-Type: application/octet-stream; ");
- header("Content-Transfer-Encoding: binary");
-}elseif($_POST["submit"]=="Email"){
-	$text = $_POST["fulltext"];
-	$email = $_POST["email"];
-		// the message
-		$msg = $text;
-
-
-
-		// send email
-		mail($email,"Legal document",$msg);
-		echo "Email has been sent.";
-
-}else{
-
-=======
     
     $no = mt_rand(100,10000);
     $filename = $no.'document.html';
@@ -75,7 +56,6 @@ if( $_POST["submit"]=="Download"){
     }
     
 }else{
->>>>>>> upstream/master
 ?>
 <html lang="en">
 <head>
@@ -97,7 +77,7 @@ $_SESSION["color"] = 'green';
 <link href="css/impress-demo.css" rel="stylesheet" />
 <link rel="shortcut icon" href="favicon.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script>
 </head>
 <body class="impress-not-supported">
 <?php 
@@ -131,6 +111,8 @@ $y = -1500;
 
 <?php
 }
+
+
 ?>
 
 
@@ -153,7 +135,12 @@ document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navi
 
 <script src="js/impress.js"></script>
 <script>impress().init();</script>
-<?php } ?>
+<?php 
+    } 
+
+
+
+?>
 
 </body>
 </html>
