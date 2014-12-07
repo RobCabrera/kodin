@@ -9,7 +9,7 @@
     margin: 5px 0;
 }
 
-.demo-load-doc-container textarea{
+.demo-load-doc-container textarea, #document{
     padding: 15px;
     resize: none;
 }
@@ -19,3 +19,4 @@
     margin: 5px 0 0 0;
     border-top: 1px dotted #ccc;
 }
+

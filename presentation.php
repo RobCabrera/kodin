@@ -124,7 +124,7 @@ session_start();
                     				</div>
                     				
                     				<div class='col-md-offset-4'>
-                    					<form target='_blank' method='post' action='show.php'><input name='topics' type='hidden' id='topics' value='".$topics."'/>
+                    					<form target='_blank' method='post' action='show_rob.php'><input name='topics' type='hidden' id='topics' value='".$topics."'/>
                     					    <textarea style='display:none;' name='fulltext' id='fulltext'>".$string."</textarea>
                     					    <textarea style='display:none;' name='sections' id='sections'>".$sections."</textarea>
                     					    <!--<input class='btn btn-danger btn-large' type='submit' name='submit' value='Load it in Browser'>-->
