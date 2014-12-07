@@ -1,26 +1,30 @@
 <?php 
 
-ob_start();
+ ob_start();
 
-  if( $_POST["submit"]=="Download"){
-  
-  
-    $no = mt_rand(100,10000);
-    $filename = $no.'document.html';
-     header("Cache-Control: public");
-     header("Content-Description: File Transfer");
-     header("Content-Disposition: attachment; filename=$filename");
-     header("Content-Type: application/octet-stream; ");
-     header("Content-Transfer-Encoding: binary");
-    
-    $impress = file_get_contents('./js/impress.js', true);
-    $css = file_get_contents('./css/impress-demo.css', true);
-            if(isset($css)){
-      echo "<style>".$css."</style>";
-  }
-    
- }
- 
+function base_url($atRoot=FALSE, $atCore=FALSE, $parse=FALSE){
+        if (isset($_SERVER['HTTP_HOST'])) {
+            $http = isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off' ? 'https' : 'http';
+            $hostname = $_SERVER['HTTP_HOST'];
+            $dir =  str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+
+            $core = preg_split('@/@', str_replace($_SERVER['DOCUMENT_ROOT'], '', realpath(dirname(__FILE__))), NULL, PREG_SPLIT_NO_EMPTY);
+            $core = $core[0];
+
+            $tmplt = $atRoot ? ($atCore ? "%s://%s/%s/" : "%s://%s/") : ($atCore ? "%s://%s/%s/" : "%s://%s%s");
+            $end = $atRoot ? ($atCore ? $core : $hostname) : ($atCore ? $core : $dir);
+            $base_url = sprintf( $tmplt, $http, $hostname, $end );
+        }
+        else $base_url = 'http://localhost/';
+
+        if ($parse) {
+            $base_url = parse_url($base_url);
+            if (isset($base_url['path'])) if ($base_url['path'] == '/') $base_url['path'] = '';
+        }
+
+        return $base_url;
+    }
+
 ?>
 <html lang="en">
 <head>
@@ -170,7 +174,77 @@ if($_POST["submit"]=="Email"){
 
 <?php
 
- 
+ if( $_POST["submit"]=="Download"){
+  
+  
+    $no = mt_rand(100,10000);
+        
+        
+    //$myFile = 'document.html';
+    // $fh = fopen($myFile, 'w') or die("can't open file");
+    // $stringData = file_get_contents(__FILE__);
+    // fwrite($fh, $stringData);
+    // fclose($fh);
+    
+    $File = './view/'.$no.'document.html';
+
+       while(file_exists($File) )
+        {
+            $no = mt_rand(100,10000);
+           
+        } 
+          
+            
+            $page = ob_get_contents();
+            ob_end_clean();
+             	
+              $basename = base_url();
+            file_put_contents('./view/'.$no.'document.html', $page);
+            
+            
+              echo 'And another thing!, Anytime you can access it via <a href="'.$basename.'view/'.$no.'document.html">this link</a>';
+
+            $filer = './view/'.$no.'document.html';
+            $zip = new ZipArchive();
+            $zip->open('./view/'.$no.'document.zip', ZipArchive::CREATE);
+            
+            $zip->addFile('document.html', $filer);
+            $zip->addFile('impress.js', './js/impress.js');
+             $zip->addFile('impress-demo.css', './css/impress-demo.css');
+            
+            $zip->close();
+            $filename = './view/'.$no.'document.zip';
+            
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mimeType = finfo_file($finfo, $filename);
+            $size = filesize($filename);
+            $name = basename($filename);
+            
+            if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+                // cache settings for IE6 on HTTPS
+                header('Cache-Control: max-age=120');
+                header('Pragma: public');
+            } else {
+                header('Cache-Control: private, max-age=120, must-revalidate');
+                header("Pragma: no-cache");
+            }
+            header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // long ago
+            header("Content-Type: $mimeType");
+            header('Content-Disposition: attachment; filename="' . $name . '";');
+            header("Accept-Ranges: bytes");
+            header('Content-Length: ' . filesize($filename));
+
+        
+         
+        
+
+  //  $impress = file_get_contents('./js/impress.js', true);
+  //  $css = file_get_contents('./css/impress-demo.css', true);
+         //   if(isset($css)){
+     // echo "<style>".$css."</style>";
+ // }
+    
+ }
 ?>
 </body>
 </html>
