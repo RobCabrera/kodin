@@ -22,51 +22,6 @@ ob_start();
  
 ?>
 
-<?php
-/*
-elseif($_POST["submit"]=="Email"){
-    
-    //Using PHPMailer 
-    require 'PHPMailer/PHPMailerAutoload.php';
-
-    $mail = new PHPMailer;
-    
-    $mail->isSMTP();
-    $mail->Host = 'ssrs.reachmail.net'; 
-    $mail->SMTPAuth = plain;                            
-    $mail->Username = 'ROBERTOC1\\admin';              
-    $mail->Password = '!@1VbD@#';                       
-    $mail->SMTPSecure = 'tls';                        
-    $mail->Port = 587;    
-    
-    //This is a free smtp, therefore, it will take some time to deliver the message.. it sucks! I know... Feel free to plug in your SMTP info.
-    
-    $email = $_POST['email'];
-    $text = $_POST["fulltext"];
-   
-    $mail->From = 'rob@robertocabrera.us';
-    $mail->FromName = 'system';
-    $mail->addAddress($email);     // Add a recipient
-    
-    
-   // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-    $mail->isHTML(true);                                  // Set email format to HTML
-    
-    $mail->Subject = 'Test - using free smtp ';
-    $mail->Body    = 'Attached, please find your zip. files' . $text;
-   // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-    
-    if(!$mail->send()) {
-        echo 'Message could not be sent.<br>';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        echo 'Message has been sent';
-    }
-    
-}else{*/
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
