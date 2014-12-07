@@ -3,7 +3,8 @@
 ob_start();
 
   if( $_POST["submit"]=="Download"){
-    
+  
+  
     $no = mt_rand(100,10000);
     $filename = $no.'document.html';
      header("Cache-Control: public");
@@ -14,7 +15,9 @@ ob_start();
     
     $impress = file_get_contents('./js/impress.js', true);
     $css = file_get_contents('./css/impress-demo.css', true);
-        
+            if(isset($css)){
+      echo "<style>".$css."</style>";
+  }
     
  }
  
@@ -112,10 +115,10 @@ document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navi
 <?php 
 
 
-
+ 
 
 if($_POST["submit"]=="Email"){
-     if(isset($css)){
+    if(isset($css)){
       echo "<style>".$css."</style>";
   }
     //Using PHPMailer 
@@ -126,8 +129,8 @@ if($_POST["submit"]=="Email"){
     $mail->isSMTP();
      $mail->Host = 'smtp.gmail.com'; 
     $mail->SMTPAuth = plain;                            
-    $mail->Username = 'your email';              
-    $mail->Password = 'that app password';                       
+    $mail->Username = 'zameermfm@gmail.com';              
+    $mail->Password = 'jbadvgdwkyocqxja';                       
     $mail->SMTPSecure = 'tls';                        
     $mail->Port = 587;    
     
