@@ -15,7 +15,7 @@ $_SESSION["color"] = 'red';
 <html lang="en">
 
 <head>
-    <title>Demo - TOS Interactive Generator</title>
+    <title>Create Your Own - Interactive TOS Generator</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link href='css/custom-style.css' rel='stylesheet' /> 
     <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' /> 
@@ -37,7 +37,7 @@ $_SESSION["color"] = 'red';
 
 <body>
 
-    <nav class="navbar navbar-default" role="navigation"> 
+    <nav class="navbar navbar-inverse custom-nav" role="navigation"> 
     
         <div class="container">
             <div class="container-fluid">
@@ -96,7 +96,7 @@ $_SESSION["color"] = 'red';
                                     Copy and Paste your data into the textarea below.
                                 </p>
                                 
-                                <form method="post" action="presentation.php" id="create-own-form">
+                                <form method="post" action="show.php" id="create-own-form">
                                 
                                     <textarea id="document" name="document" class="form-control" rows="25" cols="130"></textarea>
                                     
