@@ -25,6 +25,11 @@ APIs / Open Source Libraries & Tools Used
     <li>DATADOG API</li>
 </ul>
 
+Authors
+-----------------------------------------------------------------------------------------------------------------------------
+<a href='https://github.com/RobCabrera'>RobCabrera</a>
+<a href='https://github.com/zameermfm'>zameermfm</a>
+
 
 Questions/Concerns
 -----------------------------------------------------------------------------------------------------------------------------
