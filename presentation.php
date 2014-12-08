@@ -4,7 +4,11 @@ session_start();
 $filelocation = $_SESSION['fullpagename'];
 $code = $_SESSION['short'];
 
+<<<<<<< HEAD
+
+=======
 //require("datadog-tracker.php");
+>>>>>>> upstream/master
 ?>
 
 <!DOCTYPE html>
