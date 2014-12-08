@@ -10,9 +10,9 @@ TOS/Privacy Policies and any other legal document in a website, is ignored, and 
 Screenshots
 -----------------------------------------------------------------------------------------------------------------------------
 
-<img scr="http://robertocabrera.us/finalprod/images/screenshot1.png" alt="screenshot1" width="500">
+<img src="http://robertocabrera.us/finalprod/images/screenshot1.png" alt="screenshot1" width="500">
 <br><br>
-<img scr="http://robertocabrera.us/finalprod/images/screenshot2.png" alt="screenshot2" width="500">
+<img src="http://robertocabrera.us/finalprod/images/screenshot2.png" alt="screenshot2" width="500">
 
 APIs / Open Source Libraries & Tools Used
 -----------------------------------------------------------------------------------------------------------------------------
