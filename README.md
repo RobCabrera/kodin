@@ -1,43 +1,41 @@
+------------------------------------------------------
+  <h1> Interactive TOS Generator by TheCoderMix</h1>
+------------------------------------------------------
 
-<h1>
-    The Coder Mix Team
-</h1>
-
-Follow instructions listed here to fork this repository and to share your changes to github. This way we will keep the same version of the app.
-
-https://help.github.com/articles/fork-a-repo/
-
-Now, you will have to sync a fork of a repository to keep it up-to-date. Simple follow this instructions https://help.github.com/articles/syncing-a-fork/
-
-Since you now have a copy of this repository in your VM, you can do your part of the coding and add it to github by using the following commands:
-
-```
-$ git add .
-```
-The above command will add all of your files and changes so far to a staging area.
-
-then type:
-
-```
-$ git commit -m "Your message of what change did you do"
-```
-This commits all of your files, adding the message "Your message of what change did you do"
-
-next type:
-```
-$ git push origin master
-```
-The system will ask you for your GITHUB credentials. Just follow the instructions on the screen.
-
-After inserting your credentials, your changes will be on the repository you previously forked. You will have to go to github.com and create a pull request. Please follow the instructions found here: https://help.github.com/articles/using-pull-requests/ to do that.
-
-I will then submit all changes to the master repository.
+Description
+----------------------------------------------------------------------------------------------------------------------------
+TOS/Privacy Policies and any other legal document in a website, is ignored, and most of the time, users do not worry about it. Well, unfortunately, we cannot force any one to do something, but what we can do, is to make it more appealing for their eyes. And why not? a little interactive. With this in mind, The Coder Mix came up with the idea of developing a web application that will take users TOS/Privacy Policies (user will have to copy and paste in the correct field) and give it some style, animation, interaction.
 
 
+Screenshots
+-----------------------------------------------------------------------------------------------------------------------------
+
+<img src="http://robertocabrera.us/finalprod/images/screenshot1.png" alt="screenshot1" >
+<br><br>
+<img src="http://robertocabrera.us/finalprod/images/screenshot2.png" alt="screenshot2">
+
+APIs / Open Source Libraries & Tools Used
+-----------------------------------------------------------------------------------------------------------------------------
+<ul>
+    <li>HTML5</li>
+    <li>Twitter Bootstrap</li>
+    <li>impress.js</li>
+    <li>PHPMailer</li>
+    <li>Zipstream library</li>
+    <li>DATADOG API</li>
+</ul>
 
 
+Questions/Concerns
+-----------------------------------------------------------------------------------------------------------------------------
+Send us an email to rob@robertocabrera.us
 
 
+Have an idea...
+-----------------------------------------------------------------------------------------------------------------------------
+Want to help to make this app way better, fork this repo, and lets code on...
 
 
-
+Never to forget
+---------------------------------------------------------------------------------------------------------------------------
+To keep calm and code on fellas!

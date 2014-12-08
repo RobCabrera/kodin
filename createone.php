@@ -15,7 +15,7 @@ $_SESSION["color"] = 'red';
 <html lang="en">
 
 <head>
-    <title>Demo - Interactive TOS Generator</title>
+    <title>Create Your Own - Interactive TOS Generator</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link href='css/custom-style.css' rel='stylesheet' /> 
     <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' /> 
@@ -24,8 +24,12 @@ $_SESSION["color"] = 'red';
     <style>
         .panel-heading{
             color: #fff !important;
-            background-color: #337ab7 !important;
-            border-color: #2e6da4 !important; 
+            background-color: #d9534f !important;
+            border-color: #d43f3a !important; 
+        }
+        
+        #create-own-alert-area{
+            display:none;
         }
     </style>
 
@@ -51,9 +55,9 @@ $_SESSION["color"] = 'red';
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
-                        <li class="active"><a href="demo.php">Demo <span class="sr-only">(current)</span></a></li>
-                        <li><a href="createone.php">Create Your Own </a></li>
+                        <li><a href="index.php">Home </a></li>
+                        <li><a href="demo.php">Demo </a></li>
+                        <li class="active"><a href="createone.php">Create Your Own <span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -74,13 +78,13 @@ $_SESSION["color"] = 'red';
                         <div class="panel-heading" role="tab" id="headingOne">
                           <h2 class="panel-title">
                             <!--<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Demo</a>-->
-                            Demo
+                            Create Your Own...
                             
                           </h2>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
-                                The following should be taking into consideration when running this application.
+                                It is very simple create your own animated/interactive fine print document. The following should be taking into consideration when running this application.
                                 
                                 <ul>
                                     <li>The document must have an empty line break between each sections.</li>
@@ -89,57 +93,39 @@ $_SESSION["color"] = 'red';
                                 </ul>
                                 
                                 <p>
-                                    To see it in action, click on "Load a sample document"
+                                    Copy and Paste your data into the textarea below.
                                 </p>
                                 
-                                <form method="post" action="show.php">
+                                <form method="post" action="show.php" id="create-own-form">
                                 
+                                    <textarea id="document" name="document" class="form-control" rows="25" cols="130"></textarea>
+                                    
+                                    <div class="demo-run-container">
                                     
                                         
-                                    <!--<a id='textload' class='btn btn-info btn-large' href="#">Load a sample document </a>-->
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                             <button type="button" id="textload" class="btn btn-info btn-large">Load a sample document</button>
+                                        <div class="row">
+                                        
+                                        
+                                        <div class="col-md-4">
+                                            <input class='btn btn-danger btn-large' id="create-own-sb-btn" type="submit" name="submit" value="Create It" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                        
                                         </div>
-                                        <div class="col-md-2" id="run-demo-btn-hidden" style="display:none;">
-                                            <input class='btn btn-danger btn-large' id="run-demo-btn" type="submit" name="submit" value="Run Demo" data-loading-text="Loading...">
+                                        
+                                        <div class="col-md-8">
+                                           <div class="alert alert-danger" id="create-own-alert-area" role="alert">
+                                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden='true'></span><span id="create-own-error-msg"></span>
+                                           </div> 
                                         </div>
-                                    
-                                    </div>
-                                   
-                                    
-                                   
-                                    <div class="demo-load-doc-container">
-                                        <span>TOS / Privacy Policy</span>
-                                        
-                                        <textarea id="document" name="document" class="form-control" rows="25" cols="130"></textarea>
-                                        
-                                        
-                                    </div>
-                                    
-                                    
+                                            
+                                        </div>
+                                    </div>   
+                                    <!--<a id='textload' class='btn btn-info btn-large' href="#">Load a sample document </a>
+                                    <button type="button" id="textload" class="btn btn-info btn-large">Load a sample document</button>-->
                                 </form>
                     
                             </div>
                         </div>
                     </div>
-                    <!--
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo">
-                              <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                 Use the App to generate presentation
-                                </a>
-                              </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-                                <div class="panel-body">
-                               
-                                    
-                                </div>
-                            </div>
-                        </div> 
-                    -->
                 </div> 
             </div>      
         </div>
@@ -149,28 +135,17 @@ $_SESSION["color"] = 'red';
     <script>
         $(document).ready(function() {
         
-            $('#run-demo-btn').on('click', function () {
-                var $btn = $(this).button('loading')
-                // business logic...
-                $btn.button('reset');
+            $("#create-own-form").submit(function(e){
+               
+               var document1 = $("#document").val();
+               
+               if (document1 === ""){
+                   e.preventDefault();
+                   $("#create-own-error-msg").html("&nbsp; To continue, please enter some data. If you need to see an example, please click the Demo tab.");
+                   $("#create-own-alert-area").fadeIn();
+               }
+                
             });
-            
-        	$('#textload').click(function(){
-        	
-            	$.ajax({
-                   url : "tos.txt",
-                   dataType: "text",
-                   success : function (data) {
-                       $("#document").text(data);
-                       $(".demo-load-doc-container").fadeIn();
-                       $("#run-demo-btn-hidden").fadeIn();
-                   },
-                   error: function(data){
-                   	alert(data);
-                   }
-                });
-            });
-            
             
             
         });
