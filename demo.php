@@ -15,7 +15,7 @@ $_SESSION["color"] = 'red';
 <html lang="en">
 
 <head>
-    <title>Demo - TOS Interactive Generator</title>
+    <title>Demo - Interactive TOS Generator</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link href='css/custom-style.css' rel='stylesheet' /> 
     <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' /> 
@@ -33,7 +33,7 @@ $_SESSION["color"] = 'red';
 
 <body>
 
-    <nav class="navbar navbar-default" role="navigation"> 
+    <nav class="navbar navbar-inverse custom-nav" role="navigation"> 
     
         <div class="container">
             <div class="container-fluid">
@@ -92,25 +92,29 @@ $_SESSION["color"] = 'red';
                                     To see it in action, click on "Load a sample document"
                                 </p>
                                 
-                                <form method="post" action="presentation.php">
+                                <form method="post" action="show.php">
                                 
                                     
                                         
                                     <!--<a id='textload' class='btn btn-info btn-large' href="#">Load a sample document </a>-->
-                                    <button type="button" id="textload" class="btn btn-info btn-large">Load a sample document</button>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                             <button type="button" id="textload" class="btn btn-info btn-large">Load a sample document</button>
+                                        </div>
+                                        <div class="col-md-2" id="run-demo-btn-hidden" style="display:none;">
+                                            <input class='btn btn-danger btn-large' id="run-demo-btn" type="submit" name="submit" value="Run Demo" data-loading-text="Loading...">
+                                        </div>
                                     
+                                    </div>
+                                   
                                     
+                                   
                                     <div class="demo-load-doc-container">
                                         <span>TOS / Privacy Policy</span>
                                         
                                         <textarea id="document" name="document" class="form-control" rows="25" cols="130"></textarea>
                                         
-                                        <div class="demo-run-container">
                                         
-                                            
-                                            <input class='btn btn-danger btn-large' id="run-demo-btn" type="submit" name="submit" value="Run Demo" data-loading-text="Loading...">
-                                            
-                                        </div>
                                     </div>
                                     
                                     
@@ -159,6 +163,7 @@ $_SESSION["color"] = 'red';
                    success : function (data) {
                        $("#document").text(data);
                        $(".demo-load-doc-container").fadeIn();
+                       $("#run-demo-btn-hidden").fadeIn();
                    },
                    error: function(data){
                    	alert(data);
