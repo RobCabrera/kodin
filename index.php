@@ -1,6 +1,6 @@
 <?php
 session_start();
-//require("datadog-tracker.php");
+require("datadog-tracker.php");
 $_SESSION["color"] = 'red';
 
 ?>
@@ -17,13 +17,15 @@ $_SESSION["color"] = 'red';
 <head>
     <title>T.O.S Interactive Generator</title>
     <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' /> 
+	<link href='css/custom-style.css' rel='stylesheet' /> 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>
+	
 </head>
 
 <body>
 
-    <nav class="navbar navbar-default" role="navigation"> <div class="container">
+    <nav class="navbar navbar-inverse custom-navigation" role="navigation"> <div class="container">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -33,7 +35,7 @@ $_SESSION["color"] = 'red';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">TheCoderMix</a>
+          <a class="navbar-brand" href="index.php">TheCoderMix</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
@@ -47,75 +49,65 @@ $_SESSION["color"] = 'red';
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
       </div> </nav> 
-      <div class="container">
+	
+	<div clas="container-fluid" style="background-color: #eee;">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>
+					Interactive TOS Generator
+				</h1>
+				<p>
+					<br>
+					TOS/Privacy Policy/or any other legal document are long and most of all, bored to read. We changed that! We wanted to make this documents more appealing to user's eyes and get them involved.
+					This is no game, but an animated/interactive way to present this long legal documents to your audience.
+					<br>
+					<br>
+					Click on the Demo, to see what our product. Also, if you feel it is a must have in your website, head to the "Create Your Own" section . We show you a simple way to integrate it with your site.
+					<br>
+					<br>
+				</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="demo.php" role="button">Demo</a>
+					<a class="btn btn-danger btn-lg" href="createone.php" role="button">Create Your Own</a>
+					
+				</p>
+				
+			</div>
+		</div>
+	</div>
+	<div class="container" id="expand-cont">
       
-        <div class="rows">
-        
-            <div class="col-md-12">
-              <!-- carousel -->
-              
-              <div id="carousel-slides" class="carousel slide" data-ride="carousel">
-              <!-- Indicators -->
-              <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-              </ol>
-            
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                  <img src="images/slide1.png" alt="...">
-                  <div class="carousel-caption">
-                   sLIDE ONE
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="images/slide2.png" alt="...">
-                  <div class="carousel-caption">
-                    Slide Two
-                  </div>
-                </div>
-               
-              </div>
-            
-              <!-- Controls -->
-              <a class="left carousel-control" href="#carousel-slides" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#carousel-slides" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          
-          
-          <!-- End of carousel -->
-          </div>
+        <div class="rows" id="fullwidth-container">
+			
+			<div class="row">
+				<h3>
+					Tools used for this Project
+				</h3>
+				
+			  <div class="col-xs-6 col-md-3">
+				<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" class="thumbnail">
+				  <img data-src="holder.js/80%x160" src="images/html5.png" class="img-responsive img-rounded"  alt="html5" width="125" height="125">
+				</a>
+			  </div>
+				<div class="col-xs-6 col-md-3">
+				<a href="http://getbootstrap.com/" target="_blank" class="thumbnail">
+				  <img data-src="holder.js/80%x160" src="images/bootstrap2.jpg" class="img-responsive img-rounded" alt="twitter bootstrap" width="125" height="125">
+				</a>
+			  </div>
+				<div class="col-xs-6 col-md-3">
+				<a href="https://github.com/bartaz/impress.js/" target="_blank" class="thumbnail">
+				  <img data-src="holder.js/80%x160" src="images/articleImpress.jpg" class="img-responsive img-rounded"  alt="impress.js" width="125" height="125">
+				</a>
+			  </div>
+				<div class="col-xs-6 col-md-3">
+				<a href="https://github.com/PHPMailer/PHPMailer" target="_blank" class="thumbnail">
+				  <img data-src="holder.js/80%x160" src="images/phpmailer.png" class="img-responsive img-rounded" alt="phpmailer" width="125" height="125">
+				</a>
+			  </div>
+		
+			</div>
+                   
         </div><!--End of first row -->
-      
-        <div class="rows">
-            <div class="col-md-12"> <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> App information</a>
-                      </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            This application simulates an online fine print/legal document presentation. The document you are 
-                            submitting will be made into an interactive, user friendly, appealing presentation. The document submitted below must have an empty line break between each sections and a line break between topic and text. <br><br>
-                            <p>
-                                For a quick demo, click on "Load a sample document" button and then run it by clicking on "Make the interactive presentation"
-                            </p>
-                
-                        </div>
-                    </div>
-                </div>
-            </div>  
-        </div><!-- End of second row-->
     </div>
     </div>
 
